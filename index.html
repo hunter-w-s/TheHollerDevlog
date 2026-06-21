@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE HOLLER — Field Log</title>
+<meta name="description" content="Development log for The Holler, a co-op folk-horror game set in a real Appalachian valley." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="brand-mark">▚</span>
+      <span class="brand-text">
+        <span class="brand-title">THE&nbsp;HOLLER</span>
+        <span class="brand-sub">field development log</span>
+      </span>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="index.html" class="tab tab--active" aria-current="page">Log</a>
+      <a href="gallery.html" class="tab">Plates</a>
+    </nav>
+  </div>
+  <div class="masthead-strip" aria-hidden="true">
+    <span>AWRI&nbsp;//&nbsp;GREENBRIER&nbsp;VALLEY</span>
+    <span>38.2°N</span>
+    <span>STATION&nbsp;LOG</span>
+    <span>SOLO&nbsp;BUILD</span>
+  </div>
+</header>
+
+<main class="log" id="log">
+
+  <!-- ============================================================= -->
+  <!-- NEWEST ENTRY ON TOP. Copy a block to add a new entry.         -->
+  <!-- ============================================================= -->
+
+  <article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-06-21">2026 · 06 · 21</time>
+      <span class="entry-no">LOG 004</span>
+    </div>
+    <h2 class="entry-title">Made the sun obey the laws of physics</h2>
+    <div class="entry-body">
+      <p>
+        Spent the back half of a Saturday night convincing a directional light to
+        behave like an actual star. The sun in the valley now computes its real
+        elevation and azimuth from latitude, day-of-year, and time of day — so at
+        38.2°N it peaks in the southern sky, not straight overhead, and the days
+        get genuinely longer in summer and shorter in winter because the geometry
+        says so.
+      </p>
+      <p>
+        Verified it against the real numbers: January 1 rises around 120°
+        (southeast), barely clears 28° at noon, sets around 240°. June rises
+        north of east, rides high, lingers late. It took a few wrong sign flips
+        at 1&nbsp;in the morning to get east and west sorted out — but it's right
+        now, and seasons drop straight in by changing one number.
+      </p>
+      <p>
+        Most games in this corner fake the sun on a fixed arc. This one obeys
+        celestial mechanics. Nobody will consciously notice. Everybody will feel it.
+      </p>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-06-20">2026 · 06 · 20</time>
+      <span class="entry-no">LOG 003</span>
+    </div>
+    <h2 class="entry-title">Trail cameras you can actually service</h2>
+    <div class="entry-body">
+      <p>
+        The first real piece of the core loop. You can walk up to a trail camera
+        in the field, lean in, and bring up a low-framerate aiming feed on its
+        little screen — then read every camera's feed back at the base terminal,
+        switching between them by name from a dropdown. Only the camera you're
+        looking at renders, so it stays cheap.
+      </p>
+      <p>
+        The terminal grew a proper tabbed interface along the way: any new screen
+        is just a panel named the right way and it gets discovered automatically.
+        Adding the eventual review system later won't cost a line of plumbing.
+      </p>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-06-19">2026 · 06 · 19</time>
+      <span class="entry-no">LOG 002</span>
+    </div>
+    <h2 class="entry-title">A real valley, walked at one-to-one</h2>
+    <div class="entry-body">
+      <p>
+        Pulled real USGS elevation data of the Greenbrier valley near Kennison,
+        West Virginia, and rebuilt it in-engine at true scale — five kilometers
+        across, three hundred and forty-nine meters of real relief. Standing at
+        the bottom of the gorge looking up at terrain that an actual river carved
+        is a different feeling than anything you can sculpt by hand.
+      </p>
+      <p>
+        The best part is free: the valley is split between folded, broken country
+        on one side and a gentle plateau on the other — a real geologic boundary —
+        and the whole risk economy of the game maps straight onto ground I didn't
+        have to invent.
+      </p>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-06-18">2026 · 06 · 18</time>
+      <span class="entry-no">LOG 001</span>
+    </div>
+    <h2 class="entry-title">First light</h2>
+    <div class="entry-body">
+      <p>
+        Starting a log. <em>The Holler</em> is a co-op folk-horror game set in a
+        real Appalachian valley — you and up to three others contract for a
+        wildlife-monitoring institute, go out into country that doesn't want you
+        there, place equipment, and bring back data that doesn't always tell the
+        truth.
+      </p>
+      <p>
+        This is the most progress I've ever made on a game, and writing it down
+        is partly to keep myself honest and partly because the late-night problems
+        are worth remembering. More soon.
+      </p>
+    </div>
+  </article>
+
+</main>
+
+<footer class="foot">
+  <span>The Holler — built in the open.</span>
+  <span class="foot-coords">N&nbsp;38.2°&nbsp;·&nbsp;W&nbsp;80.2°</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* ============================================================
+   THE HOLLER — devlog styles
+   Aesthetic: a wildlife-station field journal at dusk.
+   Dark, wooded, instrument-readout type. One signature:
+   the entry's hairline-framed date stamp + log number, like
+   a trail-cam timestamp burned into the corner of a photo.
+   ============================================================ */
+
+:root {
+  /* Palette — dusk in the hollow */
+  --ink:        #d8d2c4;   /* bone / weathered paper text */
+  --ink-dim:    #8a8478;   /* muted captions */
+  --bg:         #14171a;   /* near-black blue-green, deep woods */
+  --bg-panel:   #1b1f22;   /* slightly lifted panel */
+  --line:       #2e3338;   /* hairline rules */
+  --amber:      #c9762e;   /* the one warm accent — sodium-lamp / dusk glow */
+  --moss:       #5d6b4a;   /* cold organic secondary */
+  --max: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  letter-spacing: 0.1px;
+  /* faint vertical gradient, like fog settling low */
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, #1d2227 0%, var(--bg) 55%);
+  min-height: 100vh;
+}
+
+/* film grain so the dark isn't flat — subtle */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .grain { animation: none; } /* kept static intentionally */
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #15191c, #14171a);
+}
+
+.masthead-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 22px 24px 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  color: var(--amber);
+  font-size: 22px;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+.brand-text { display: flex; flex-direction: column; }
+
+.brand-title {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--ink);
+}
+
+.brand-sub {
+  font-family: "Space Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-top: 2px;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs { display: flex; gap: 4px; }
+
+.tab {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-dim);
+  padding: 7px 14px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.tab:hover { color: var(--ink); border-color: var(--line); }
+
+.tab--active {
+  color: var(--bg);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+.tab--active:hover { color: var(--bg); }
+
+.tab:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* thin data strip under masthead — instrument readout flavor */
+.masthead-strip {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px 12px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #555c52;
+}
+
+/* ---------- Log entries ---------- */
+
+.log {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.entry {
+  padding: 0 0 40px;
+  margin: 0 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+.entry:last-child { border-bottom: none; margin-bottom: 0; }
+
+/* the signature: a trail-cam-style stamp line */
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.entry-meta time { color: var(--amber); }
+
+.entry-no {
+  color: var(--ink-dim);
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.entry-title {
+  font-family: "Spectral", Georgia, serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.18;
+  margin: 0 0 16px;
+  letter-spacing: -0.2px;
+}
+
+.entry-body p { margin: 0 0 14px; }
+.entry-body p:last-child { margin-bottom: 0; }
+.entry-body em { color: var(--ink); font-style: italic; }
+
+/* ---------- Plates (gallery) ---------- */
+
+.plates {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.plate { margin: 0; }
+
+.plate-frame {
+  border: 1px solid var(--line);
+  background: var(--bg-panel);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.plate-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.plate--empty .plate-frame {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #181c1f 0px, #181c1f 10px,
+      #1b1f22 10px, #1b1f22 20px
+    );
+}
+
+.plate-placeholder {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #3c4248;
+}
+
+.plate figcaption {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-top: 12px;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.plate-id { color: var(--amber); }
+.plate-cap { color: var(--ink-dim); line-height: 1.5; letter-spacing: 0.3px; }
+.plate-cap code {
+  color: var(--ink);
+  background: var(--bg-panel);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: "Space Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #555c52;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  body { font-size: 16.5px; }
+  .entry-title { font-size: 24px; }
+  .masthead-inner { align-items: flex-start; }
+  .brand-title { font-size: 17px; }
+}
