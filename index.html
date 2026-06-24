@@ -45,32 +45,16 @@
       <time datetime="2026-06-23">2026 · 06 · 23</time>
       <span class="entry-no">LOG 005</span>
     </div>
-    <h2 class="entry-title">A pack you have to actually pack</h2>
+    <h2 class="entry-title">Inventory System Established</h2>
     <div class="entry-body">
       <p>
-        Built the inventory, and refused to make it a list of slots. It's a grid —
-        every item has a real footprint, a trail camera eats a two-by-two block,
-        and you rotate things with a right-click to make them fit. Drag a piece
-        out of your pack and into a box on the ground; the two grids sit side by
-        side and you ferry gear between them like you're packing for a trip you
-        might not come back from. Which, in this valley, you might not.
+        I spent this evening building out the inventory system. It is a derivation of the Escape from Tarkov inventory system with a grid system where you can rotate items and you can swap out packs on your back for different ones. This is not an uncommon system, and there is not much new or really any that has been introduced but it should be a nice addition to the game.
       </p>
       <p>
-        Underneath it, every object in the world is real physics until the moment
-        you pick it up — then it goes quiet and folds into the grid with all its
-        settings intact, and comes back out into your hands the same object it was.
-        You can also just grab things and carry them around, bump them off walls,
-        throw them. A backpack is itself only another object: drop it, hand it to
-        someone, loot it.
+        Each item that you can put in your inventory and every backpack is a physics item, it can be placed in the world, moved around with G, picked up with R, or opened with E if it is a container. The container view opens your invenotry on the left and the container on the right, which is all well and good but I am debating where to put the players inventory screen when not looking at an external inventory. Its simple enough to keep it like it is, but its odd looking. 
       </p>
       <p>
-        Most of the night was the unglamorous part — making the mouse let go of
-        the camera at the right moment, making one key mean pick-up and another
-        mean drop, making the cursor lock and unlock when it's supposed to instead
-        of fighting four systems that all thought they owned it. Tore that last one
-        out and gave the cursor a single boss. Two and a half hours; the most
-        machinery I've ever stood up in one sitting. The grid looks rough. Tomorrow
-        it gets dressed.
+        Most of the bugs encountered when building extended from locking the cursor during inventory managment and unlocking it after the window closes. That and there was one amusing bug where if you dropped an item from your inventory the scale was dropped to .1 of the original, so the placeholder box became a small cube, then if you picked it up and dropped it again, it became a grain of sand. All sorted though. Next is making the inventory UI look a bit better because the current look of it is a bit archaic and while the visuals are placeholders, it could look better for verification. 
       </p>
     </div>
   </article>
@@ -83,23 +67,13 @@
     <h2 class="entry-title">Made the sun obey the laws of physics</h2>
     <div class="entry-body">
       <p>
-        Spent the back half of a Saturday night convincing a directional light to
-        behave like an actual star. The sun in the valley now computes its real
-        elevation and azimuth from latitude, day-of-year, and time of day — so at
-        38.2°N it peaks in the southern sky, not straight overhead, and the days
-        get genuinely longer in summer and shorter in winter because the geometry
-        says so.
+        Before now, the sun was just following a straight line from 90 degrees to 270 degrees, peaking with an altitude at zenith. Because I chose West Virginia as the basis for where the game takes place I decided to to make the sun pass with a realistic path through the sky for that lat depending on the day selected. So on the summer solstice, the sun passes as high as it could and the day is as long as it would ever be. For the winter solstice, its low and the day is short. 
       </p>
       <p>
-        Verified it against the real numbers: January 1 rises around 120°
-        (southeast), barely clears 28° at noon, sets around 240°. June rises
-        north of east, rides high, lingers late. It took a few wrong sign flips
-        at 1&nbsp;in the morning to get east and west sorted out — but it's right
-        now, and seasons drop straight in by changing one number.
+        This has all been verified with a city near 38.2 degrees Lat which is where the orignal landscape is based. The sun sets and rises from the correct az, and rises to the correct elevation. This was not a necessary addition but it does add to the beauty of the world, and it makes winters much more dangerous as most of the day is spent in darkness. The sun also casts a realistic sunset. We can adjust this later, especially when weather systems are introduced. Currently it is jsut red and orange, but it can very quickly be adjusted to include purples and pinks.
       </p>
       <p>
-        Most games in this corner fake the sun on a fixed arc. This one obeys
-        celestial mechanics. Nobody will consciously notice. Everybody will feel it.
+        One fun bug that eventually became frustrating was the sky darkening way too much before sunset. Tuned and fixed, but it was perplexing.
       </p>
     </div>
   </article>
@@ -109,19 +83,13 @@
       <time datetime="2026-06-20">2026 · 06 · 20</time>
       <span class="entry-no">LOG 003</span>
     </div>
-    <h2 class="entry-title">Trail cameras you can actually service</h2>
+    <h2 class="entry-title">Trail cameras and the video system</h2>
     <div class="entry-body">
       <p>
-        The first real piece of the core loop. You can walk up to a trail camera
-        in the field, lean in, and bring up a low-framerate aiming feed on its
-        little screen — then read every camera's feed back at the base terminal,
-        switching between them by name from a dropdown. Only the camera you're
-        looking at renders, so it stays cheap.
+        Create a placehiolder trail camera, this will be an essential system and while it is static now it will be able to held in the inventory, then also put on a tree, mounted as a static object, but if the player instead just drops it, it will be a physics enabled object. Currently it is just 2 fps, but options will be added for players with beefier pc's to have it run at higher fps.
       </p>
       <p>
-        The terminal grew a proper tabbed interface along the way: any new screen
-        is just a panel named the right way and it gets discovered automatically.
-        Adding the eventual review system later won't cost a line of plumbing.
+        The terminal also got an upgrade. It now has tabs, and one such tab is used for viewing cameras.
       </p>
     </div>
   </article>
@@ -135,16 +103,10 @@
     <div class="entry-body">
       <p>
         Pulled real USGS elevation data of the Greenbrier valley near Kennison,
-        West Virginia, and rebuilt it in-engine at true scale — five kilometers
-        across, three hundred and forty-nine meters of real relief. Standing at
-        the bottom of the gorge looking up at terrain that an actual river carved
-        is a different feeling than anything you can sculpt by hand.
+        West Virginia. Pushed it into QGIS to resample it with cubic spline, exported it then applied it to the terrain in the Unity Engine. it has a 1000ft elevation change from the valley to the peaks with a dynamic lanscape.
       </p>
       <p>
-        The best part is free: the valley is split between folded, broken country
-        on one side and a gentle plateau on the other — a real geologic boundary —
-        and the whole risk economy of the game maps straight onto ground I didn't
-        have to invent.
+        The landscape is a mix between folded mountains and a plateau. This can introduce some interesting mechanics later and rewards careful planning and understanding of the map. THe base is currently just on the spur in the middle of the map.
       </p>
     </div>
   </article>
