@@ -42,6 +42,25 @@
   <!-- ============================================================= -->
 <article class="entry">
     <div class="entry-meta">
+      <time datetime="2026-07-07">2026 · 07 · 07</time>
+      <span class="entry-no">LOG 013</span>
+    </div>
+    <h2 class="entry-title">Rotating, Pause Menu, UTV and More</h2>
+    <div class="entry-body">
+      <p>
+        Here is a summation of all that has been changed since the last log. Firstly now the player can rotate objects with physics by holding right click and moving their mouse. Kind of hard to fix your UTV if it flips and you can rotate it. In the same vein of the UTV, now the player one exit clipped into the ground. If the UTV had flipped on its left side, the exit point would be under the terrain and thus they would fall through the world, which isnt exactly intended. There is a known bug right now where the F key controls the headlights on the UTV, regardless of whether or not you actually are seated, also not intended. There is now another smoothing layer added onto the camera in the UTV so that the stutter that had presisted through interpolating the rigidbody is muted. 
+      </p>
+      <p>
+        There is now also a pause menu the player can access with escape. Right now it has 2 buttons, resume and exit, but there will be plenty more added later. BEcause we introduced a pause menu, it was a good time to consolidate the controllers so that we arent fighting race conditions on which script controls the cursor. I have also fixed the scaling on the inventory screen, it was a simple matter of scaling to the screen rather than pixel and adjusting some rect transforms.
+      </p>
+<p>
+We are making some very good progress. Playtesters have been giving good feedback and expressed displeasure with how weak the UTV feels. While I originally designed it to be intended for specific grade limits, I am not so certain now. If it is actually unpleasant to drive because its weak, it becomes a friction point, even if it is accurate to real life. We are getting closer and closer to a releaseable build.  
+</p>
+    </div>
+  </article>
+
+<article class="entry">
+    <div class="entry-meta">
       <time datetime="2026-07-05">2026 · 07 · 05</time>
       <span class="entry-no">LOG 012</span>
     </div>
