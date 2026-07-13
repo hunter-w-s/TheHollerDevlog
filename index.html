@@ -42,7 +42,26 @@
   <!-- ============================================================= -->
 <article class="entry">
     <div class="entry-meta">
-      <time datetime="2026-07-08">2026 · 07 · 09</time>
+      <time datetime="2026-07-12">2026 · 07 · 012</time>
+      <span class="entry-no">LOG 016</span>
+    </div>
+    <h2 class="entry-title">Much needed break and incremental progress</h2>
+    <div class="entry-body">
+      <p>
+	I took a much needed break from this project this week. It wasn't a super long break but it allowed me to think about what I wanted to do next. Once I was back I made a few small additions. They break down into 3 main features. A zoom for the camera, a slot for the backpack, glass material and a door. 
+      </p>
+      <p>
+A few of these are self explantatory. The zoom uses the X key by default and scales down the sensitivity when you use it. The glass material for the windows and UTV windscreen. Eventually it will have baked reflections on static windows, but I am not sure about that one yet. The more interesting additions are the slot for the back pack and the door. The backpack was still relatively simple. In the same way that we have a slot for hands and belt, we have a slot for the backpack so that you can move it from there to exterior containers and we have disallowed recursive backpacks. No stacking backpacks together. And maybe its not realistic that the backpack can store a bunch of stuff and take up less space in the exterior container than the total volume, but that's ok.
+      </p>
+<p>
+Lastly the door. I initially went with a fully physics interactable and draggable door. But quickly realized that a lot of people would probably dislike how clunky it was. So we went with scripted opening using the hinge join component, scripted to open to 90 degrees. What's nice is this has a spring component so it opens kind of realistically. It also has lock, which for horror elements later will be pretty interesting. It all runs through the interactable script that we've used on so much else which is great for seamless usage. Eventually leaving the door unlocked will have consequences. Creatures coming in through an unlocked door. Also I had some more ideas for creatures and interactions. For one. If you take a picture of a skinwalker in the field with the flash on, it will trigger it to transform and chase you down. Of course this will be something you can recognize before hand, but I can already imagine the horror as a wolf twists itself into a semi humanoid and chases the players. 
+</p>
+    </div>
+  </article>
+
+<article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-07-09">2026 · 07 · 09</time>
       <span class="entry-no">LOG 015</span>
     </div>
     <h2 class="entry-title">Inventory Flesh Out and A Usable UTV Bed</h2>
