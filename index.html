@@ -40,6 +40,26 @@
   <!-- ============================================================= -->
   <!-- NEWEST ENTRY ON TOP. Copy a block to add a new entry.         -->
   <!-- ============================================================= -->
+
+<article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-07-13">2026 · 07 · 13</time>
+      <span class="entry-no">LOG 017</span>
+    </div>
+    <h2 class="entry-title">Held Objects and Trail Camera Work</h2>
+    <div class="entry-body">
+	<p>
+A big lever was turned with todays work. All of it in the same vein. I made the objects in the hand slots render. Right now its just visual. So if you walk into a wall, it clips through, but this may be changed later. Next on that front is making the items you held droppable without going into the inventory. This will probably be just tied to Q by default. Minecraft had it right when they made it use Q and considering the number of people who have played that game, its probably a good bet its semi wired into a lot of players. The one thing to be concerned about is how close it is to the arrow keys and the player could drop a high value item in the middle of the forest, and good luck finding it. Ther should also be a quick stow button. Maybe that should be Q and the drop should be something else.
+	</p>
+	<p>
+This was an important piece of the puzzle for the next task we completed. We can now pickup and place the trail cameras, turn the off and on and most importantly, we can mount them. We will have to make sure eventually it cant be placed on anything that moves because it is parented to the TrailCamReg empty. Which should be relatively simple. This was one of the final pieces before we got to the core gameplay loop. It was also the thing ive been most worried about. Still some things to fix though. Like the camera not having a rigid body, this was because we had only been mounting them statically anyways for testing, but now they should act like normal objects. Also the powered off cameras should be removed from the TrailCamReg, because that is how the terminal allows you to see the individual cameras, but if its off it shouldnt pop up at all. 
+	</p>
+	<p>
+Plent to fix, plenty to implement, but we are making some real progress.
+	</p>
+    </div>
+  </article>
+
 <article class="entry">
     <div class="entry-meta">
       <time datetime="2026-07-12">2026 · 07 · 12</time>
