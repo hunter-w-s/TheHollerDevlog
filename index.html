@@ -40,6 +40,24 @@
   <!-- ============================================================= -->
   <!-- NEWEST ENTRY ON TOP. Copy a block to add a new entry.         -->
   <!-- ============================================================= -->
+<article class="entry">
+    <div class="entry-meta">
+      <time datetime="2026-07-16">2026 · 07 · 16</time>
+      <span class="entry-no">LOG 019</span>
+    </div>
+    <h2 class="entry-title">Save Bugs and the Main Gameplay Loop</h2>
+    <div class="entry-body">
+	<p>
+	Starting off today.. and yesterday, I had some bugs to fix with the save system and some changes I made to each script file impacted. Nothing really of note, fixed as needed and tested. There will be more and I expect this to be an ongoing process because I waited so long to nail down the system for saving and loading. The wierdest one I couldnt reproduce at first was one where something in the UTV Bed that was locked would drift, but only if the scene was initialized from the MainMenuScene. It turned out to be an issue with interpolation.
+	</p>
+	<p>
+	And finally the ultimate acheivement of this month was getting the core game loop to a state that while rudimentary, allows for actual testing of the system and implmentation of the rest of the systems. While a trail camera is on, it will send a photo periodically to the home terminal. Which can then be sent to HQ for a reward of cash. Each file sent by a camera has a value and a multiplier. The base right now is low and maybe its changed later but if you take the camera far from roads and far from the base you get a greater reward. 
+	</p>
+	<p>
+	All of the data files are in a simple scroll display right now on the terminal, but later you will be able to view the image, and you will be able to queue a few to send over a period of time instead of instantly. Then use the points acquired to buy things. New cameras, batteries, food, many different things. Honestly getting this done was huge. We can continue to flesh this out, but getting to this point in a mere 28 days was so rewarding. Who knows what another month will bring.
+	</p>
+    </div>
+  </article>
 
 <article class="entry">
     <div class="entry-meta">
